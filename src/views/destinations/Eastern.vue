@@ -1,84 +1,79 @@
+<script setup>
+import easternImg from '../../assets/park.jpg'
+</script>
 <template>
-  <section class="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20 px-4">
+  <section class="min-h-screen bg-gradient-to-b from-white to-slate-50 py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <!-- Header -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
         <div>
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Eastern Rwanda</h1>
-          <p class="text-xl text-gray-600 leading-relaxed mb-6">Experience the wild heart of East Africa at Akagera National Park, Rwanda's largest protected savanna with the Big Five and pristine wilderness.</p>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">🦁</span>
-              <div>
-                <h3 class="font-bold text-gray-800">Big Five Safari</h3>
-                <p class="text-gray-600 text-sm">Lions, leopards, elephants, buffalo, rhinos</p>
-              </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6">Eastern Rwanda</h1>
+          <p class="text-xl text-slate-600 leading-relaxed mb-6">Discover Akagera National Park, Rwanda's largest protected savanna, and experience premier wildlife and wilderness travel.</p>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-bold text-slate-900">Safari Excellence</h3>
+              <p class="text-slate-600 text-sm">Big Five game drives with professional guides.</p>
             </div>
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">🌄</span>
-              <div>
-                <h3 class="font-bold text-gray-800">Savanna Landscapes</h3>
-                <p class="text-gray-600 text-sm">Rolling grasslands and scenic vistas</p>
-              </div>
+            <div>
+              <h3 class="font-bold text-slate-900">Savanna Landscapes</h3>
+              <p class="text-slate-600 text-sm">Expansive grasslands and scenic lakeside views.</p>
             </div>
-            <div class="flex items-center gap-4">
-              <span class="text-3xl">🦓</span>
-              <div>
-                <h3 class="font-bold text-gray-800">Wildlife Abundance</h3>
-                <p class="text-gray-600 text-sm">Over 500+ animal species</p>
-              </div>
+            <div>
+              <h3 class="font-bold text-slate-900">Wildlife Diversity</h3>
+              <p class="text-slate-600 text-sm">More than 500 species supported by responsible conservation.</p>
             </div>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl h-96 flex items-center justify-center text-7xl shadow-lg">
-          🦁
+        <div class="relative rounded-[32px] h-96 overflow-hidden shadow-lg">
+          <div class="absolute inset-0 bg-cover bg-center" :style="{ backgroundImage: `url(${easternImg})` }"></div>
+          <div class="absolute inset-0 bg-slate-950/35"></div>
+          <div class="relative z-10 flex h-full items-center justify-center text-white text-center px-8">
+            <div>
+              <p class="text-2xl font-semibold">Eastern Rwanda</p>
+              <p class="mt-4 text-sm text-slate-100">A premium safari destination with refined wilderness travel.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Activities -->
       <div class="mb-16">
-        <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Must-Do Activities</h2>
+        <h2 class="text-4xl font-bold text-slate-900 mb-8 text-center">Must-Do Activities</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition">
-            <div class="text-5xl mb-4">🚙</div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-3">Game Drives</h3>
-            <p class="text-gray-600 mb-4">Thrilling safari experiences with expert guides to spot Africa's most iconic wildlife in their natural habitat.</p>
-            <button class="text-green-600 font-semibold hover:text-green-700">Learn More →</button>
+          <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition">
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">Game Drives</h3>
+            <p class="text-slate-600 mb-4">Premium safari tours guided by experienced rangers and naturalists.</p>
+            <button class="text-emerald-600 font-semibold hover:text-emerald-700">Learn More →</button>
           </div>
-          <div class="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition">
-            <div class="text-5xl mb-4">🌅</div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-3">Sunrise Safaris</h3>
-            <p class="text-gray-600 mb-4">Witness the African dawn and observe wildlife during their most active hours on exclusive sunrise safari tours.</p>
-            <button class="text-green-600 font-semibold hover:text-green-700">Learn More →</button>
+          <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition">
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">Sunrise Safaris</h3>
+            <p class="text-slate-600 mb-4">Early morning wildlife viewing with breathtaking dawn scenery.</p>
+            <button class="text-emerald-600 font-semibold hover:text-emerald-700">Learn More →</button>
           </div>
-          <div class="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition">
-            <div class="text-5xl mb-4">🛶</div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-3">River Cruises</h3>
-            <p class="text-gray-600 mb-4">Scenic boat cruises on the Kagera River offering unique perspectives of wildlife and riverside ecosystems.</p>
-            <button class="text-green-600 font-semibold hover:text-green-700">Learn More →</button>
+          <div class="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition">
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">River Cruises</h3>
+            <p class="text-slate-600 mb-4">Scenic cruises along the Kagera River with premium hospitality.</p>
+            <button class="text-emerald-600 font-semibold hover:text-emerald-700">Learn More →</button>
           </div>
         </div>
       </div>
 
-      <!-- Practical Info -->
-      <div class="bg-green-50 rounded-xl p-12">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Practical Information</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <p class="text-sm text-gray-600 mb-2 uppercase font-semibold">Best Time to Visit</p>
-            <p class="text-lg font-bold text-green-600">June-Sept</p>
+      <div class="bg-slate-50 rounded-3xl p-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Practical Information</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="text-sm text-slate-600 mb-2 uppercase font-semibold">Best Time to Visit</p>
+            <p class="text-lg font-bold text-emerald-600">June–September</p>
           </div>
-          <div class="text-center">
-            <p class="text-sm text-gray-600 mb-2 uppercase font-semibold">Park Size</p>
-            <p class="text-lg font-bold text-green-600">1,122 km²</p>
+          <div>
+            <p class="text-sm text-slate-600 mb-2 uppercase font-semibold">Park Size</p>
+            <p class="text-lg font-bold text-emerald-600">1,122 km²</p>
           </div>
-          <div class="text-center">
-            <p class="text-sm text-gray-600 mb-2 uppercase font-semibold">Temperature</p>
-            <p class="text-lg font-bold text-green-600">22-30°C</p>
+          <div>
+            <p class="text-sm text-slate-600 mb-2 uppercase font-semibold">Temperature</p>
+            <p class="text-lg font-bold text-emerald-600">22–30°C</p>
           </div>
-          <div class="text-center">
-            <p class="text-sm text-gray-600 mb-2 uppercase font-semibold">Distance from Kigali</p>
-            <p class="text-lg font-bold text-green-600">~140km</p>
+          <div>
+            <p class="text-sm text-slate-600 mb-2 uppercase font-semibold">Distance from Kigali</p>
+            <p class="text-lg font-bold text-emerald-600">~140 km</p>
           </div>
         </div>
       </div>

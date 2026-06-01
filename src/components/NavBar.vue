@@ -31,86 +31,85 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav class="sticky top-0 z-50 bg-gradient-to-r from-green-700 to-green-800 text-white px-8 py-4 flex items-center justify-between shadow-lg">
-    <!-- Logo Section -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <img src="../assets/sos.svg" class="h-10 w-10 drop-shadow-lg" alt="Logo">
-      <span class="text-xl font-bold hidden sm:inline">Tembera Urwanda</span>
+  <nav class="sticky top-0 z-50 bg-white/95 border-b border-slate-200 px-8 py-4 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
+      <div class="flex items-center gap-4 flex-shrink-0">
+        <div class="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-700 text-white text-lg font-semibold tracking-[0.24em] shadow-sm">TR</div>
+        <div>
+          <div class="text-lg font-semibold tracking-[0.18em] uppercase text-slate-900">Tembera Urwanda</div>
+          <div class="text-xs text-slate-500 uppercase tracking-[0.28em]">Rwanda Travel</div>
+        </div>
+      </div>
+
+      <ul class="flex flex-wrap items-center gap-6 md:gap-8 list-none p-0 m-0 text-sm text-slate-700">
+        <li class="hover:text-emerald-700 transition duration-300">
+          <RouterLink to="/" class="font-medium">Home</RouterLink>
+        </li>
+        <li class="hover:text-emerald-700 transition duration-300">
+          <RouterLink to="/about" class="font-medium">About</RouterLink>
+        </li>
+        <li class="hover:text-emerald-700 transition duration-300">
+          <RouterLink to="/services" class="font-medium">Services</RouterLink>
+        </li>
+
+        <li class="nav-dropdown relative cursor-pointer py-2">
+          <span
+            @click="toggleDropdown('gallery')"
+            class="hover:text-emerald-700 flex items-center gap-2 select-none font-medium transition duration-300"
+          >
+            Gallery
+            <span class="text-xs transition-transform duration-300" :class="{ 'rotate-180': activeDropdown === 'gallery' }">
+              ▾
+            </span>
+          </span>
+          <ul v-if="activeDropdown === 'gallery'" class="absolute left-0 top-full mt-2 bg-white text-slate-900 rounded-2xl shadow-xl py-3 w-52 z-50 border border-slate-200">
+            <li class="hover:bg-slate-50">
+              <RouterLink to="/gallery/photos" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Photos</RouterLink>
+            </li>
+            <li class="hover:bg-slate-50 border-t border-slate-200">
+              <RouterLink to="/gallery/videos" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Videos</RouterLink>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-dropdown relative cursor-pointer py-2">
+          <span
+            @click="toggleDropdown('destinations')"
+            class="hover:text-emerald-700 flex items-center gap-2 select-none font-medium transition duration-300"
+          >
+            Destinations
+            <span class="text-xs transition-transform duration-300" :class="{ 'rotate-180': activeDropdown === 'destinations' }">
+              ▾
+            </span>
+          </span>
+          <ul v-if="activeDropdown === 'destinations'" class="absolute left-0 top-full mt-2 bg-white text-slate-900 rounded-2xl shadow-xl py-3 w-52 z-50 border border-slate-200">
+            <li class="hover:bg-slate-50">
+              <RouterLink to="/dest/northern" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Northern</RouterLink>
+            </li>
+            <li class="hover:bg-slate-50 border-t border-slate-200">
+              <RouterLink to="/dest/southern" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Southern</RouterLink>
+            </li>
+            <li class="hover:bg-slate-50 border-t border-slate-200">
+              <RouterLink to="/dest/eastern" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Eastern</RouterLink>
+            </li>
+            <li class="hover:bg-slate-50 border-t border-slate-200">
+              <RouterLink to="/dest/western" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Western</RouterLink>
+            </li>
+            <li class="hover:bg-slate-50 border-t border-slate-200">
+              <RouterLink to="/dest/kigali" class="block px-4 py-3 hover:text-emerald-700 font-medium transition">Kigali</RouterLink>
+            </li>
+          </ul>
+        </li>
+
+        <li class="hover:text-emerald-700 transition duration-300">
+          <RouterLink to="/contacts" class="font-medium">Contact</RouterLink>
+        </li>
+      </ul>
     </div>
-
-    <!-- Navigation Links -->
-    <ul class="flex gap-6 md:gap-10 items-center justify-end flex-wrap list-none p-0 m-0">
-      <li class="hover:text-yellow-200 transition duration-300">
-        <RouterLink to="/" class="font-semibold flex items-center">Home</RouterLink>
-      </li>
-      <li class="hover:text-yellow-200 transition duration-300">
-        <RouterLink to="/about" class="font-semibold flex items-center">About</RouterLink>
-      </li>
-      <li class="hover:text-yellow-200 transition duration-300">
-        <RouterLink to="/services" class="font-semibold flex items-center">Services</RouterLink>
-      </li>
-
-      <!-- Gallery Dropdown -->
-      <li class="nav-dropdown relative cursor-pointer py-2">
-        <span 
-          @click="toggleDropdown('gallery')"
-          class="hover:text-yellow-200 flex items-center gap-2 select-none font-semibold transition duration-300"
-        >
-          Gallery 
-          <span class="text-xs transition-transform duration-300" :class="{ 'rotate-180': activeDropdown === 'gallery' }">
-            ▼
-          </span>
-        </span>
-        <!-- Dropdown Menu Box -->
-        <ul v-if="activeDropdown === 'gallery'" class="absolute left-0 top-full mt-0 bg-white text-gray-900 rounded-lg shadow-xl py-3 w-48 z-50 border-t-4 border-green-600">
-          <li class="hover:bg-green-50">
-            <RouterLink to="/gallery/photos" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">📸 Photos</RouterLink>
-          </li>
-          <li class="hover:bg-green-50 border-t border-gray-200">
-            <RouterLink to="/gallery/videos" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">🎥 Videos</RouterLink>
-          </li>
-        </ul>
-      </li>
-
-      <!-- Destination Dropdown -->
-      <li class="nav-dropdown relative cursor-pointer py-2">
-        <span 
-          @click="toggleDropdown('destinations')"
-          class="hover:text-yellow-200 flex items-center gap-2 select-none font-semibold transition duration-300"
-        >
-          Destinations 
-          <span class="text-xs transition-transform duration-300" :class="{ 'rotate-180': activeDropdown === 'destinations' }">
-            ▼
-          </span>
-        </span>
-        <!-- Dropdown Menu Box -->
-        <ul v-if="activeDropdown === 'destinations'" class="absolute left-0 top-full mt-0 bg-white text-gray-900 rounded-lg shadow-xl py-3 w-48 z-50 border-t-4 border-green-600">
-          <li class="hover:bg-green-50">
-            <RouterLink to="/dest/northern" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">⛰️ Northern</RouterLink>
-          </li>
-          <li class="hover:bg-green-50 border-t border-gray-200">
-            <RouterLink to="/dest/southern" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">🌄 Southern</RouterLink>
-          </li>
-          <li class="hover:bg-green-50 border-t border-gray-200">
-            <RouterLink to="/dest/eastern" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">🌅 Eastern</RouterLink>
-          </li>
-          <li class="hover:bg-green-50 border-t border-gray-200">
-            <RouterLink to="/dest/western" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">🌆 Western</RouterLink>
-          </li>
-          <li class="hover:bg-green-50 border-t border-gray-200">
-            <RouterLink to="/dest/kigali" class="block px-4 py-3 hover:text-yellow-700 font-semibold transition-colors">🏙️ Kigali</RouterLink>
-          </li>
-        </ul>
-      </li>
-
-      <li class="hover:text-yellow-200 transition duration-300">
-        <RouterLink to="/contacts" class="font-semibold flex items-center">Contact</RouterLink>
-      </li>
-    </ul>
   </nav>
 
   <!-- Main Content Area -->
-  <main class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <main class="min-h-screen bg-slate-50">
     <RouterView />
   </main>
 </template>
